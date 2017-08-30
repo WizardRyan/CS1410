@@ -1,0 +1,19 @@
+R1.4 -  Input: Keyboard, Mouse, Ethernet, etc
+	Output: Monitor, Speakers, etc
+
+R1.9 -  High level programming languages are compiled, so it's
+	reusable over multiple CPU architectures. It's also faster and
+	easier for humans to read Higher level languages.
+
+R.10 - C++, C, assembly
+
+R.11 -  Pros: Fast, has object-oriented features
+	Cons: Slow compile-time, not as high-level as other languages (could be a pro or con)
+
+R.13 -  The escape character "\" lets the compiler know that the next
+	character isn't a regular string, and should be evaluated with
+	a different context
+
+
+	      
+
