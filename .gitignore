@@ -7,3 +7,8 @@
 **/*.log
 **/*.tlog
 **/*.lastbuildstate
+**/*.ilk
+**/*.pdb
+**/*.pch
+**/*.exe
+s
