@@ -1,2 +1,5 @@
-**/.vs
-**/*.zip
+*
+
+!*/.gitignore
+!*/.cpp
+!*/.txt
