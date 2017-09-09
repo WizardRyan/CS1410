@@ -1,0 +1,14 @@
+*/*
+
+!.gitignore
+!Labs/*.cpp
+!Labs/*/*.cpp
+!Labs/*/*/*.cpp
+!Labs/*/*/*/*.cpp
+!Book/*/*.cpp
+!Book/*/*/*.cpp
+!Book/*/*/*/*.cpp
+!*.cpp
+!*/*.txt
+
+!*/.txt
