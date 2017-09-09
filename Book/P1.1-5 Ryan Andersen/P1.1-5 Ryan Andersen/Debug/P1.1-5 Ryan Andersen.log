@@ -1,5 +1,0 @@
-﻿R:\Visual Studio\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (P1.1-5 Ryan Andersen.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  stdafx.cpp
-  P1.1.cpp
-  P1.1-5 Ryan Andersen.vcxproj -> C:\Users\Admin\Desktop\CS1410\Book\P1.1-5 Ryan Andersen\Debug\P1.1 Ryan Andersen.exe
-  P1.1-5 Ryan Andersen.vcxproj -> C:\Users\Admin\Desktop\CS1410\Book\P1.1-5 Ryan Andersen\Debug\P1.1 Ryan Andersen.pdb (Partial PDB)

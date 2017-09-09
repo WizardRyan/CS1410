@@ -1,5 +1,0 @@
-﻿  P1.5.cpp
-c:\users\admin\desktop\cs1410\book\p1.1-5 ryan andersen\p1.5\p1.5.cpp(19): warning C4305: 'argument': truncation from 'int' to 'char'
-c:\users\admin\desktop\cs1410\book\p1.1-5 ryan andersen\p1.5\p1.5.cpp(19): warning C4309: 'argument': truncation of constant value
-  P1.5.vcxproj -> C:\Users\Admin\Desktop\CS1410\Book\P1.1-5 Ryan Andersen\Debug\P1.5.exe
-  P1.5.vcxproj -> C:\Users\Admin\Desktop\CS1410\Book\P1.1-5 Ryan Andersen\Debug\P1.5.pdb (Partial PDB)
