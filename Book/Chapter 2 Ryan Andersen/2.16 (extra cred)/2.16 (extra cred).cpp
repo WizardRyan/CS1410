@@ -13,49 +13,46 @@ int main()
 	int secondMin;
 	int secondHour;
 
-
 	int diff;
 	int hours;
 	int min;
+	string again = "y";
 
-	cout << "enter your time in 24 hour format, for example 01344" << endl;
-	cout << "enter your first time: ";
-	cin >> first;
-	cout << "enter your second time: ";
-	cin >> second;
 
-	if (first > second) {
+	while (again == "y") {
+
+		cout << "enter your time in 24 hour format, for example 01344" << endl
+		     << "enter your first time: ";
+		cin >> first;
+		cout << "enter your second time: ";
+		cin >> second;
+
+		//split time into minutes
 		firstHour = first / 100;
 		firstMin = first % 100 + firstHour * 60;
 		secondHour = second / 100;
 		secondMin = second % 100 + secondHour * 60;
 
-		diff = firstMin - secondMin;
-
-		hours = diff / 60;
-		hours = 23 - hours; //flip the usual calcuation
-
-		min = diff % 60;
 
 
-	}
+		if (first > second) {
+			diff = firstMin - secondMin;
+			diff = 1440 - diff; //1400 minutes in a day
+		}
 
-	else {
-		firstHour = first / 100;
-		firstMin = first % 100 + firstHour * 60;
-		secondHour = second / 100;
-		secondMin = second % 100 + secondHour * 60;
-
-		diff = secondMin - firstMin;
+		else {
+			diff = secondMin - firstMin;
+		}
 
 		hours = diff / 60;
 		min = diff % 60;
+	
+		cout << endl << hours << " hours " << min << " minutes" << endl << endl;
+
+		cout << "Continue? y/n: ";
+		cin >> again;
+		cout << endl << endl;
 	}
-
-	cout << endl << hours << " hours " << min << " minutes" << endl;
-
-
-	system("pause");
     return 0;
 }
 
