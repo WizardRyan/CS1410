@@ -1,0 +1,31 @@
+2.5	n = x:
+	This will truncate any parts of the number after the decimal, so, if x = 4.4, n = 4
+	This is risky, as the maximum integer size can be smaller than the size of the double, and for reasons that will be explained below.
+
+	n = static_cast<int>(x + .5):
+	This is an explicit way to convert an double into an int, and will be checked by the compiler before runtime. It also checks for type compatibility.
+	The "+ .5" ensures that there won't be any round-off errors, as in some cases there may be no exact represenation of the 
+	entered decimal number so it ends up being a little less than what was expected.
+
+2.6	iostream is missing angle brackets
+	main shouldn't have a semicolon after paranthesis
+	no semicolon after first cout
+	x and y aren't declared
+	you don't use commmas to take multiple inputs using the cin operator, you use "<<" instead
+	mismatched quotation marks on third cout, multiple times
+	missing angle brackets after "is: "
+	should return 0 instead of nothing
+
+2.7	total is used before it's defined
+	//variables are declared inconsistently throughout the program
+	total uses x1 twice instead of x1 + x2
+	//it's preferable to use x += y as oppposed to x = x + y (does that count as a logic error or is it just preference?)
+	total is an integer and is divided by an integer, then converted to a float, so information is lost. It should either be a float in the first place or converted beforehand.
+
+2.8	2 is an integer
+	2.0 is a double or a float
+	"2" is a string
+	"2.0" is also a string, but with a different value
+
+2.14	an object is an instance of a class, while a class defines what properties the object has. For example, class "Animal" could create an object called "Zebra"
+
