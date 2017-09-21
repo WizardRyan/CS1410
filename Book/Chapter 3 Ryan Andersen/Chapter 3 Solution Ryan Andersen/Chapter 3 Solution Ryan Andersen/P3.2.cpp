@@ -24,7 +24,6 @@ int main()
 		if (second == types[i][0]) {
 			type += types[i];
 		}
-
 	}
 
 	if (name == "") {
