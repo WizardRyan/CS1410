@@ -1,0 +1,43 @@
+4.1 - 
+
+	// I accidentaly programmed the first few until I read all the instructions. nice.
+	a) find tithing 
+	b) find fraction of a whole pizza
+	c) output numbers in text form
+	d) see if two wages are equal
+	e) change current world and level
+	f) gets the number of employees
+	g) find width of circle
+	h) find midpoint of line
+
+4.2 - 
+	a) false
+	b) true
+	c) true // unless you consider side-effects to be part of returning a value, then you can have multiple
+	d) true
+	e) true
+	f) false
+	g) true
+	h) true
+
+4.5 - a predicate function is a function that returns a boolean value. 4.1 (d) is an example of when to use a predicate function, and would look like this:
+	bool isEqual(double a, double b){
+		return(a == b);
+	}
+
+4.8 - they are now circled.
+
+4.19 - It doesn't work because the variables are being passed in by value, instead of by reference. Here's what it should look like: 
+	void false_swap2(int& a,  int& b){
+		int temp = a;
+		a = b;
+		b = temp;
+	}
+
+Jk, here's the answers to 4.8
+	a) harry
+	d) message
+	f) harry
+
+
+	
