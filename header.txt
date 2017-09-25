@@ -9,3 +9,9 @@
 //I understand that copying any source code, in whole or in part, 
 // constitutes cheating, and that I will receive a zero on this project
 // if I am found in violation of this policy.
+
+// Purpose: Brief sentence describing the purpose of the function.
+// Parameters: List the functions parameters
+// Returns: What does the function return
+// Pre-conditions: Conditions that must exist for function to work
+// Post-conditions:Conditions that exist after function has executed
