@@ -14,10 +14,7 @@
 #include <iomanip>
 #include <string>
 #include <algorithm>
-
+#include <numeric>
 using namespace std;
 
-double findMedian(const vector<double>& vec);
-
-
-// TODO: reference additional headers your program requires here
+double findMedian(vector<double> vec);
