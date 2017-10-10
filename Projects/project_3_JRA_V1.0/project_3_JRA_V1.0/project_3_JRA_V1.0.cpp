@@ -6,7 +6,7 @@
 
 int main()
 {
-	int nums[] = { 1, 2, 3, 4, 5 };
+	int nums[] = { 2, 4, 1, 3, 5};
 	int numelems = 5;
 
 	mySort(nums, numelems);
@@ -21,11 +21,12 @@ void mySort(int nums[], int numelems) {
 		return;
 	}
 
-
 }
 
 
 int sortHelp(int nums[], int index, int size) {
-
+	if (size == 0) {
+		return;
+	}
 }
 
