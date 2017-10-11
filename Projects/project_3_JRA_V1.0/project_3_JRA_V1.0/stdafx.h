@@ -15,5 +15,9 @@
 
 using namespace std;
 
-void mySort(int nums[], int numelems);
-int sortHelp(int nums[], int index, int size);
+//sorts an array in ascending order
+//accepts arr, the array to be sorted, and n, the size of the array
+void Sort(int arr[], int n);
+
+//does comparison and switching part of sort
+void sortHelp(int arr[], int index, int size);

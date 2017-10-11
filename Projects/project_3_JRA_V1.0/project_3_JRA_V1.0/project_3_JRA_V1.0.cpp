@@ -4,29 +4,47 @@
 #include "stdafx.h"
 
 
-int main()
-{
-	int nums[] = { 2, 4, 1, 3, 5};
-	int numelems = 5;
+#include <iostream>
 
-	mySort(nums, numelems);
+using namespace std;
+
+
+int main() {
+
+	int arr[] = { 4, 1, 3, 2, 5 };
+	int n = 5;
+
+
+
+	Sort(arr, n);
+
+	for (int i = 0; i < n; i++) {
+		cout << arr[i];
+	}
 
 	cout << endl << endl;
 	system("pause");
-    return 0;
+	return 0;
 }
 
-void mySort(int nums[], int numelems) {
-	if (numelems == 0) {
+void Sort(int arr[], int n)
+{
+	if (n == 1) {
 		return;
 	}
 
+	sortHelp(arr, 0, n);
+
+	Sort(arr, n - 1);
 }
 
-
-int sortHelp(int nums[], int index, int size) {
-	if (size == 0) {
+void sortHelp(int arr[], int index, int size) {
+	if (size == 1) {
 		return;
 	}
+	if (arr[index] > arr[index + 1]) {
+		swap(arr[index], arr[index + 1]);
+	}
+	sortHelp(arr, index + 1, size - 1);
 }
 
