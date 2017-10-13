@@ -19,5 +19,14 @@ using namespace std;
 //accepts arr, the array to be sorted, and n, the size of the array
 void Sort(int arr[], int n);
 
-//does comparison and switching part of sort
+//a helper function for Sort, does comparison and the actual switching part of sort
+//accepts arr, an array, index, the current index of the array, and size, the size of the array.
 void sortHelp(int arr[], int index, int size);
+
+//initiates a number guessing game
+//accepts "size", the max size of the range of numbers the game will guess from
+void hilo(int size);
+
+//does the actual searching of hilo. Will prompt the user asking if a value is high or low.
+//accepts "first", the lowest value to search from, and "last", the largest value to search from.
+void hiloHelp(int first, int last);
