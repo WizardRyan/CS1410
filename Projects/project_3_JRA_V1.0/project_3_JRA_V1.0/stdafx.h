@@ -12,6 +12,7 @@
 #include <iomanip>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -29,4 +30,4 @@ void hilo(int size);
 
 //does the actual searching of hilo. Will prompt the user asking if a value is high or low.
 //accepts "first", the lowest value to search from, and "last", the largest value to search from.
-void hiloHelp(int first, int last);
+void hiloHelp(int first, int last, vector<int>& guesses);

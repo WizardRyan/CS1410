@@ -14,7 +14,6 @@
 #include <iostream>
 using namespace std;
 
-
 int main() {
 
 	int arr[] = { 5, 4, 3, 2, 1 };
@@ -23,7 +22,7 @@ int main() {
 	Sort(arr, n);
 
 	for (int i = 0; i < n; i++) {
-		cout << arr[i];
+		cout << arr[i] << endl;
 	}
 
 	cout << endl << endl;
@@ -56,32 +55,58 @@ void sortHelp(int arr[], int index, int size) {
 	sortHelp(arr, index + 1, size - 1);
 }
 
-void hiloHelp(int first, int last) {
+void hiloHelp(int first, int last, vector<int>& guessesList) {
 
 	int guess = (last + first) / 2;
-
-	(last == first) ? cout << "Your number is " << guess << " (or you cheated)" : cout << "Is it " << guess << "? (l, y, h): ";
-
+	int guessCount = 0;
+	vector<int> guesses = guessesList;
+	guesses.push_back(guess);
 	string response;
-	cin >> response;
+
+
+	//check if user has aleady evaluated a number, if so, they've cheated.
+	for (int i = 0; i < guesses.size(); i++) {
+		if (guesses[i] == guess) {
+			guessCount++;
+			if (guessCount > 1) {
+				cout << "You cheated!";
+				return;
+			}
+		}
+	};
+
+	if (last == first) {
+		cout << "Your number is " << guess << " (or you cheated)";
+		return;
+	}
 	
-	if (response == "y") {
+	else {
+
+		cout << "Is it " << guess << "? (l, h, y): ";
+
+		while (!(cin >> response) || (response != "l" && response != "h" && response != "y")) {
+			cin.clear();
+			cin.ignore(80, '\n');
+			cout << "bad input, enter either l, h, or y: ";
+		}
+	}
+
+	 if (response == "y") {
 		cout << "Yeet, got the number" << endl;
 		return;
 	}
 
-	if (response == "l") {
-		hiloHelp(guess + 1, last);
+	else if (response == "l") {
+		hiloHelp(guess + 1, last, guesses);
 	}
 
-	if (response == "h") {
-		hiloHelp(first, guess - 1);
+	else if (response == "h") {
+		hiloHelp(first, guess - 1, guesses);
 	}
 };
 
 void hilo(int size) {
 	cout << "think of number between 1 and " << size << endl;
-	hiloHelp(1, size);
-
+	vector<int> guesses;
+	hiloHelp(1, size, guesses);
 };
-
