@@ -1,0 +1,19 @@
+232
+259
+R5.2 - The class interface resides within the class definition, and holds the defition of the
+	 constructor(s), mutator functions, and accessor functions, and is stored in a header file.
+	The class implementation defines everything that's within the class's header file. It's where you decide what the interface actually does, and is stored in a cpp file.
+
+R5.3 - A member function is function that resides within a class. It has an
+	 implicit parameter, which can be referred to as "this" from within the function. 
+	nonmember functions have none of these features, and can be defined outside of a class,
+	 and called without an object.
+
+
+R5.8 - A constructor is where you can set the value of the member fields in a class. 
+ 	For example, you would set the flavor of a drink from the class "soda" in a constructor.
+        It is declared as a method with the same name of the class it's in, with no return value. 
+	You can use both parameterized and default constructors in your class.
+
+R5.13 - 
+

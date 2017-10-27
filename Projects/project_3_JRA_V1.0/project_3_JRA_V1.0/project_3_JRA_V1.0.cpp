@@ -27,7 +27,7 @@ int main() {
 
 	cout << endl << endl;
 
-	hilo(100);
+	hilo(200);
 
 	cout << endl << endl;
 	system("pause");
