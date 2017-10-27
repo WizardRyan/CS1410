@@ -1,5 +1,4 @@
-232
-259
+
 R5.2 - The class interface resides within the class definition, and holds the defition of the
 	 constructor(s), mutator functions, and accessor functions, and is stored in a header file.
 	The class implementation defines everything that's within the class's header file. It's where you decide what the interface actually does, and is stored in a cpp file.
@@ -15,5 +14,12 @@ R5.8 - A constructor is where you can set the value of the member fields in a cl
         It is declared as a method with the same name of the class it's in, with no return value. 
 	You can use both parameterized and default constructors in your class.
 
-R5.13 - 
+R5.13 - Encapsulation refers to when you hide data from people consuming your class. This is done by making data fields private.
+	  This is useful, because it lets you as the author of a class control what other programmers can do to manipulate these variables.
+
+R5.18 - You would need to type objectName.methodName() to call a member function outside of its class, while a non-member function can be called as methodName()
+	You can call a member function the same way you would call a non-member function if you are still inside the class the member function is defined in, 
+	making it harder to distinguish the two.
+
+	
 
