@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26228.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project 1", "Chapter 6 Ryan Andersen\Chapter 6 Ryan Andersen.vcxproj", "{366D584B-806E-4769-9280-49780AEF50EE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Problem 1", "Chapter 6 Ryan Andersen\Chapter 6 Ryan Andersen.vcxproj", "{366D584B-806E-4769-9280-49780AEF50EE}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project 2", "Project 2\Project 2.vcxproj", "{2CC4CA56-EC67-4154-9A38-6B4319ACA371}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Problem 2", "Project 2\Project 2.vcxproj", "{2CC4CA56-EC67-4154-9A38-6B4319ACA371}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Problem 2 Extra Cred", "Problem 2 Extra Cred\Problem 2 Extra Cred.vcxproj", "{2AF34857-C117-4FA3-92E7-C0504915A5AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,14 @@ Global
 		{2CC4CA56-EC67-4154-9A38-6B4319ACA371}.Release|x64.Build.0 = Release|x64
 		{2CC4CA56-EC67-4154-9A38-6B4319ACA371}.Release|x86.ActiveCfg = Release|Win32
 		{2CC4CA56-EC67-4154-9A38-6B4319ACA371}.Release|x86.Build.0 = Release|Win32
+		{2AF34857-C117-4FA3-92E7-C0504915A5AF}.Debug|x64.ActiveCfg = Debug|x64
+		{2AF34857-C117-4FA3-92E7-C0504915A5AF}.Debug|x64.Build.0 = Debug|x64
+		{2AF34857-C117-4FA3-92E7-C0504915A5AF}.Debug|x86.ActiveCfg = Debug|Win32
+		{2AF34857-C117-4FA3-92E7-C0504915A5AF}.Debug|x86.Build.0 = Debug|Win32
+		{2AF34857-C117-4FA3-92E7-C0504915A5AF}.Release|x64.ActiveCfg = Release|x64
+		{2AF34857-C117-4FA3-92E7-C0504915A5AF}.Release|x64.Build.0 = Release|x64
+		{2AF34857-C117-4FA3-92E7-C0504915A5AF}.Release|x86.ActiveCfg = Release|Win32
+		{2AF34857-C117-4FA3-92E7-C0504915A5AF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

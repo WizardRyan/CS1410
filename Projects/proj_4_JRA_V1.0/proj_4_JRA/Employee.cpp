@@ -1,6 +1,10 @@
+//I declare that the following source code was written solely by me.
+//I understand that copying any source code, in whole or in part, 
+// constitutes cheating, and that I will receive a zero on this project
+// if I am found in violation of this policy.
 #include "Employee.h"
 
-double Employee::getHoursWorked() {
+double Employee::getHoursWorked() const {
 	return this->hoursWorked;
 }
 
@@ -8,7 +12,7 @@ void Employee::setHoursWorked(double hoursWorked) {
 	this->hoursWorked = hoursWorked;
 }
 
-double Employee::getHourlyWage() {
+double Employee::getHourlyWage() const {
 	return this->hourlyWage;
 }
 
@@ -16,7 +20,7 @@ void Employee::setHourlyWage(double hourlyWage) {
 	this->hourlyWage = hourlyWage;
 }
 
-string Employee::getPhoneNumber() {
+string Employee::getPhoneNumber() const{
 	return this->phoneNumber;
 }
 
@@ -24,7 +28,7 @@ void Employee::setPhoneNumber(string phoneNumber) {
 	this->phoneNumber = phoneNumber;
 }
 
-string Employee::getStreetAddress() {
+string Employee::getStreetAddress()const {
 	return this->streetAddress;
 }
 
@@ -32,7 +36,7 @@ void Employee::setStreetAddress(string streetAddress) {
 	this->streetAddress = streetAddress;
 }
 
-string Employee::getName() {
+string Employee::getName()const {
 	return this->name;
 }
 
@@ -40,7 +44,7 @@ void Employee::setName(string name) {
 	this->name = name;
 }
 
-double Employee::calcPay() {
+double Employee::calcPay() const {
 	double overTime = 0;
 	double overTimePay = 0;
 	double regularPay = 0;
@@ -48,21 +52,22 @@ double Employee::calcPay() {
 	const double STATE_TAX = .075;
 	double grossPay = 0;
 	double netPay = 0;
+	double totalHours = hoursWorked;
 	
-	if (hoursWorked > 40) {
+	if (totalHours > 40) {
 		overTime = hoursWorked - 40;
 		overTimePay = overTime * (hourlyWage * 1.5);
-		hoursWorked -= overTime;
+		totalHours -= overTime;
 	}
 
-	regularPay = hourlyWage * hoursWorked;
+	regularPay = hourlyWage * totalHours;
 
 	grossPay = regularPay + overTimePay;
 
 	netPay = grossPay * (1 - FEDERAL_TAX);
 	netPay -= grossPay * STATE_TAX;
 
-	//round to the second decimal
+	//round to the second decimal's place (100.345 = 100.35, 100.342 = 100.34)
 	netPay *= 100;
 	netPay = (abs(static_cast<int>(netPay) - netPay) >= .5) ? ceil(netPay) : floor(netPay);
 	netPay /= 100;
@@ -70,7 +75,7 @@ double Employee::calcPay() {
 	return netPay;
 }
 
-int Employee::getEmployeeNumber() {
+int Employee::getEmployeeNumber()const {
 	return this->employeeNumber;
 }
 

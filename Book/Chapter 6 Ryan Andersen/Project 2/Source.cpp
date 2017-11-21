@@ -10,19 +10,22 @@
 // constitutes cheating, and that I will receive a zero on this project
 // if I am found in violation of this policy.
 
+
+//function explanations are in the header
+
 #include "Header.h"
 
 int main() {
     int num;
-	cout << "enter number to filled to, > 5 and < " << MAX_SIZE << " : ";
+	//any more than 20 and I get a stack overflow... whew lad
+	cout << "enter number greater than 5 and less than 20" << " : ";
 	cin >> num;
 
-	int arr[MAX_SIZE][MAX_SIZE];
-	callFillIt(arr, num);
+	WrapArray arr = callFillIt(num);
 
 	for (int i = 0; i < num; i++) {
 		for (int k = 0; k < num; k++) {
-			cout << arr[i][k];
+			cout << arr.nums[i][k] << " ";
 		}
 		cout << endl;
 	}
@@ -32,18 +35,23 @@ int main() {
 	return 0;
 }
 
-void callFillIt(int arr[MAX_SIZE][MAX_SIZE], int maxNum) {
-	fillIt(arr, 1, 0, maxNum);
+WrapArray callFillIt(int maxNum) {
+	WrapArray ar = { 0 };
+
+	return fillIt(ar, 0, 0, maxNum);
 }
 
-void fillIt(int arr[MAX_SIZE][MAX_SIZE], int num, int index, int maxNum) {
+WrapArray fillIt(WrapArray arr, int num, int index, int maxNum) {
 	if (num >= maxNum) {
-		return;
+		return arr;
 	}
-	
-	for (int i = num - 1; i < maxNum; i++) {
-		arr[index][i] = num;
+	WrapArray newArr = arr;
+
+	for (int k = 0; k < maxNum; k++) {
+		for (int i = 0; i < maxNum; i++) {
+			newArr.nums[k + index][i + num] = num + 1;
+		}
 	}
 
-	fillIt(arr, num + 1, index + 1, maxNum);
+	fillIt(newArr, num + 1, index + 1, maxNum);
 }

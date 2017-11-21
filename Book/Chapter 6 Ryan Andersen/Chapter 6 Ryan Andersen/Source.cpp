@@ -10,7 +10,9 @@
 // constitutes cheating, and that I will receive a zero on this project
 // if I am found in violation of this policy.
 
-//function headers are located in the headers file
+
+
+//function explanations are located in the header file
 
 #include "Header.h"
 
