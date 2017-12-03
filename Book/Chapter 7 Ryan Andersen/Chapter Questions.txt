@@ -1,0 +1,51 @@
+7.1 - 
+	2 - is setting the pointer to five, not the value stored in the pointer
+	5 - e2 isn't declared as a pointer, but it's used as one on lines 6 and 7. It also isn't set to NULL
+	7 - e2 should be set to NULL after it's deleted
+	10 - pnow isn't dereferenced (may or may not be error, depends on implementation of Time)
+	11 - t1 shouldn't be dereferenced when deleting, and it isn't set to NULL afterwards
+	12 - t1 is accessed after it's deleted
+	14 - e3 isn't dereferenced when accessing the get_salary method
+	16 - t2 is dereferenced improperly, should be (*t2).get_minutes() to ensure correct order of evaluation
+	17 - t2 isn't set to NULL after deletion
+	
+
+7.2 - 
+	int *a = new int;
+	*a = 6;
+
+	delete a;
+	int *b = a;
+
+	int *c = NULL;
+
+	int *d = new int;
+
+7.3 -
+	a = 6;
+	b - read access violation
+	c - read access violation
+	d = random value, e.g. -7589383
+
+7.4 - 
+	a) You have a memory leak, the object remains on the heap
+	b) access violation, you are trying to delete an object that doesn't exist to the program
+
+7.9 - 
+	a) access the second element in the array, returns 3
+	b) move over one from the zeroeth index, equivalent to answer a, but returns a pointer to the second element.
+	c) equivalent to b, but dereferences the pointer, so it returns 3
+	d) move over 1 from zeroeth index in p, returns 11
+	e) returns a pointer to the second element in p
+	f) returns the difference of the subscripts in "values" and "p", so 3. (like doing arrayLength1 - arrayLength2)
+
+7.10 - 
+	a) return a pointer to the second element in "Harry"
+	b) derefrence a pointer to the third element in "Harry", so it returns r
+	c) equivalent to answer b, but over one more element. returns the second r in Harry
+	d) The programmer is drunk. (Haha sorry, I have no idea. Can you link me a source or explain what this means in a comment? Thanks)
+
+7.13 - 
+	a) p now points to null, and will return null when accessed or dereferenced, normally causing the program to stop.
+	b) q now points to an empty character array. It now has an address, and will return an empty char array with a null terminator when dereferenced.
+	c) r declares a char array that has a null terminator. Differs from q, as r will always return a pointer to the first element in the array when accessed by name, while q will return whatever pointer q is holding.
