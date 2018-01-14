@@ -1,0 +1,25 @@
+//I declare that the following source code was written solely by me.
+//I understand that copying any source code, in whole or in part, 
+// constitutes cheating, and that I will receive a zero on this project
+// if I am found in violation of this policy.
+
+#pragma once
+#include "Employee.h"
+#include <iostream>
+
+class Manager :
+	public Employee
+{
+public:
+	Manager(string name, double salary, string department);
+	~Manager();
+
+	//prints the name, salary, and department of the Manager object
+	//accepts no parameters
+	//no return
+	void virtual print() const;
+
+private:
+	string department;
+};
+

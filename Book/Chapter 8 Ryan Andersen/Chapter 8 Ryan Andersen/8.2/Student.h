@@ -1,0 +1,24 @@
+
+//I declare that the following source code was written solely by me.
+//I understand that copying any source code, in whole or in part, 
+// constitutes cheating, and that I will receive a zero on this project
+// if I am found in violation of this policy.
+
+#pragma once
+#include "Person.h"
+class Student :
+	public Person
+{
+public:
+	Student(string name, string birthday, string major);
+	~Student();
+
+	//prints the name, birthday, and major of the Student object
+	//accepts no parameters
+	//no return
+	void virtual print() const;
+
+private:
+	string major;
+};
+

@@ -1,9 +1,9 @@
 // Author: Ryan Andersen
-// Assignment: Chapter 7
+// Assignment: Chapter 8
 // Instructor: Blair
 // Class: CS 1410
-// Date Written: 12/2/17
-// Description: a program for practicing pointers
+// Date Written: 1/13/18
+// Description: a program for practicing classes
 
 
 //I declare that the following source code was written solely by me.

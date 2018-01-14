@@ -1,0 +1,32 @@
+R8.3 - 
+	B::B(3)
+	//B::B()
+	B::B(-3)
+	D::D(3)
+Mark me off on this one, I ran the program after I worked through it, and saw that I got line 2 wrong,
+It slipped my mind that the default constructor is called when b is first declared
+
+
+R8.4 - 1
+
+R8.6 - 
+	b
+	c
+	d
+	g
+
+R8.8 -
+	false;
+	true;
+	true;
+	false;
+	true;
+	true;
+	false;
+	false;
+
+(lol, I'll just leave those semicolons there)
+	
+	
+
+	
