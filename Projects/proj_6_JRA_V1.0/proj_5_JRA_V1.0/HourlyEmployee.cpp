@@ -4,6 +4,13 @@
 // if I am found in violation of this policy.
 #include "HourlyEmployee.h"
 
+
+HourlyEmployee::HourlyEmployee(int employeeNumber, string name, string streetAddress, string phoneNumber, double hoursWorked, double hourlyWage) : Employee::Employee(employeeNumber, name, streetAddress, phoneNumber) {
+
+	this->hourlyWage = hourlyWage;
+	this->hoursWorked = hoursWorked;
+}
+
 double HourlyEmployee::getHoursWorked() const {
 	return this->hoursWorked;
 }
@@ -52,43 +59,34 @@ double HourlyEmployee::calcPay() const {
 	return netPay;
 }
 
-HourlyEmployee::HourlyEmployee(int employeeNumber, string name, string streetAddress, string phoneNumber, double hoursWorked, double hourlyWage) : Employee::Employee(employeeNumber, name, streetAddress, phoneNumber) {
-	this->employeeNumber = employeeNumber;
-	this->name = name;
-	this->streetAddress = streetAddress;
-	this->phoneNumber = phoneNumber;
-	this->hourlyWage = hourlyWage;
-	this->hoursWorked = hoursWorked;
+void HourlyEmployee::readData(ifstream & is)
+{
+	Employee::readData(is);
+
+	string dat[2];
+	getline(is, dat[0]);
+	getline(is, dat[1]);
+
+	this->setHoursWorked(stod(dat[0]));
+	this->setHourlyWage(stod(dat[1]));
+
 }
 
-void Employee::write(ofstream& o) {
-	vector<Employee*> employees;
 
-	Employee joe(37, "Joe Brown", "123 Main St.", "123-6788", 45, 10.00);
-	Employee sam(21, "Sam Jones", "45 East State", "661-9000", 30, 12.00);
-	Employee mary(15, "Mary Smith", "12 High Street", "401-8900", 40, 15.00);
-	employees.push_back(&joe);
-	employees.push_back(&sam);
-	employees.push_back(&mary);
-
-	for (auto e : employees) {
-		o << e->getEmployeeNumber() << endl << e->getName() << endl << e->getStreetAddress() << endl << e->getPhoneNumber() << endl << e->getHoursWorked() << endl << e->getHourlyWage() << endl;
-	}
+void HourlyEmployee::write(ofstream& o) {
+	
+	Employee::write(o);
+	o << this->getHoursWorked() << endl << this->getHourlyWage() << endl;
 }
 
-vector<Employee*> Employee::read(ifstream& is) {
-	vector<Employee*> employees;
-	string data[6];
-	int index = 0;
+HourlyEmployee* HourlyEmployee::read(ifstream& is) {
+	HourlyEmployee* e = new HourlyEmployee();
+	e->readData(is);
+	return e;
+}
 
-	for (string dat; getline(is, dat);) {
-		data[index] = dat;
-		index++;
-
-		if (index == 6) {
-			employees.push_back(new Employee(stoi(data[0]), data[1], data[2], data[3], stod(data[4]), stod(data[5])));
-			index = 0;
-		}
-	}
-	return employees;
+void HourlyEmployee::printCheck() {
+	Employee::printCheck();
+	cout << "Hours Worked: " << this->hoursWorked << endl << "Hourly Wage: " << this->hourlyWage
+		<< endl << endl;
 }

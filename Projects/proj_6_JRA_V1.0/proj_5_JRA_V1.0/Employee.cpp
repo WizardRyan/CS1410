@@ -4,6 +4,15 @@
 // if I am found in violation of this policy.
 #include "Employee.h"
 
+Employee::Employee(int employeeNumber, string name, string streetAddress, string phoneNumber) {
+	this->employeeNumber = employeeNumber;
+	this->name = name;
+	this->streetAddress = streetAddress;
+	this->phoneNumber = phoneNumber;
+
+}
+
+
 string Employee::getPhoneNumber() const {
 	return this->phoneNumber;
 }
@@ -29,76 +38,55 @@ void Employee::setName(string name) {
 }
 
 double Employee::calcPay() const {
-	//double overTime = 0;
-	//double overTimePay = 0;
-	//double regularPay = 0;
-	//const double FEDERAL_TAX = .2;
-	//const double STATE_TAX = .075;
-	//double grossPay = 0;
-	//double netPay = 0;
-	//double totalHours = hoursWorked;
+	return -1;
+}
 
-	//if (totalHours > 40) {
-	//	overTime = hoursWorked - 40;
-	//	overTimePay = overTime * (hourlyWage * 1.5);
-	//	totalHours -= overTime;
-	//}
-
-	//regularPay = hourlyWage * totalHours;
-
-	//grossPay = regularPay + overTimePay;
-
-	//netPay = grossPay * (1 - FEDERAL_TAX);
-	//netPay -= grossPay * STATE_TAX;
-
-	////round to the second decimal's place (100.345 = 100.35, 100.342 = 100.34)
-	//netPay *= 100;
-	//netPay = (abs(static_cast<int>(netPay) - netPay) >= .5) ? ceil(netPay) : floor(netPay);
-	//netPay /= 100;
-
-	//return netPay;
+void Employee::setEmployeeNumber(int num) {
+	this->employeeNumber = num;
 }
 
 int Employee::getEmployeeNumber()const {
 	return this->employeeNumber;
 }
 
-Employee::Employee(int employeeNumber, string name, string streetAddress, string phoneNumber) {
-	this->employeeNumber = employeeNumber;
-	this->name = name;
-	this->streetAddress = streetAddress;
-	this->phoneNumber = phoneNumber;
+void Employee::write(ofstream& o){
+	o << this->getEmployeeNumber() << endl << this->getName() << endl << this->getStreetAddress() << endl << this->getPhoneNumber() << endl;
+	
+}
+
+void Employee::readData(ifstream& is) {
+		int index = 0;
+		string data[4];
+
+		for (int i = 0; i < 4; i++) {
+			getline(is, data[i]);
+		}
+		this->setEmployeeNumber(stoi(data[0]));
+		this->setName(data[1]);
+		this->setStreetAddress(data[2]);
+		this->setPhoneNumber(data[3]);
 
 }
 
-//void Employee::write(ofstream& o){
-//	vector<Employee*> employees;
-//
-//	Employee joe(37, "Joe Brown", "123 Main St.", "123-6788", 45, 10.00);
-//	Employee sam(21, "Sam Jones", "45 East State", "661-9000", 30, 12.00);
-//	Employee mary(15, "Mary Smith", "12 High Street", "401-8900", 40, 15.00);
-//	employees.push_back(&joe);
-//	employees.push_back(&sam);
-//	employees.push_back(&mary);
-//
-//	for (auto e : employees) {
-//		o << e->getEmployeeNumber() << endl << e->getName() << endl << e->getStreetAddress() << endl << e->getPhoneNumber() << endl << e->getHoursWorked() << endl << e->getHourlyWage() << endl;
-//	}
-//}
 
-//vector<Employee*> Employee::read(ifstream& is) {
-//	vector<Employee*> employees;
-//	string data[6];
-//	int index = 0;
-//
-//	for (string dat; getline(is, dat);) {
-//		data[index] = dat;
-//		index++;
-//
-//		if (index == 6) {
-//			employees.push_back(new Employee(stoi(data[0]), data[1], data[2], data[3], stod(data[4]), stod(data[5])));
-//			index = 0;
-//		}
-//	}
-//	return employees;
-//}
+void Employee::printCheck() {
+	cout << fixed << setprecision(2);
+	cout << endl << endl;
+	drawChar('-', 20);
+	cout << "FluffleShuffle Electronics";
+	drawChar('-', 20);
+	cout << endl << endl
+		<< "Pay to the order of " << this->getName();
+	drawChar('.', 10);
+	cout << "$" << this->calcPay()
+		<< endl << endl
+		<< "United Bank of This Programming Project" << endl;
+	drawChar('-', 68);
+	cout << endl;
+}
+
+void Employee::drawChar(char c, int num) {
+	for (int i = 0; i < num; i++) {
+		cout << c;
+	}
+}

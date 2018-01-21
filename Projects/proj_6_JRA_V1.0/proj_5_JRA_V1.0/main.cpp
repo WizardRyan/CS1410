@@ -2,7 +2,7 @@
 // Assignment: Project 6
 // Instructor: Blair
 // Class: CS 1410
-// Date Written: 1/18/18
+// Date Written: 1/20/18
 // Description: a program utilizing the employee class and persistence
 
 
@@ -16,61 +16,62 @@
 //function explanations are in their respective headers
 int main() {
 
-	vector<Employee*> employees;
+	vector<Employee*> employees = { 
+		new HourlyEmployee(1, "H. Potter", "Privet Drive", "201-9090", 40, 12.00), 
+		new SalariedEmployee(2, "A. Dumbledore", "Hogwarts", "808-1230", 1200),
+		new HourlyEmployee(3, "R. Weasley", "The Burrow", "892-2000", 40, 10),
+		new SalariedEmployee(4, "R. Hagrid", "Hogwarts", "910-8765", 1000) 
+	};
 
-	cout << "Select an option: " << endl
-		<< "1 - create a data file" << endl
-		<< "2 - read data from a file, and print paychecks" << endl
-		<< ": ";
-	int input;
-	cin >> input;
-	
-	if(input == 1){
-		cout << "enter in desired filename (e.g. \"file.txt\"): ";
+	cout << "Select an option: "
+		<< endl << "1 - Create a data file" << endl << "or"
+		<< endl << "2 - Read data from file and print paychecks"
+		<< endl << "Enter desired option: ";
+	int option;
+	cin >> option;
+
+	if (option == 1) {
+		cout << "Enter file name to be created (e.g. file.txt): ";
 		string fileName;
 		cin >> fileName;
 		ofstream o(fileName);
-
-		Employee::write(o);
-
-		cout << endl << "finsihed writing data to file";
+		for (auto e : employees) {
+			e->write(o);
+			delete e;
+		}
+		employees.clear();
+		cout << endl << "file \"" << fileName << "\" created.";
 	}
 
-	else if (input == 2) {
+	else if (option == 2) {
+		cout << "Enter file name to be read from (e.g. file.txt): ";
+		string fileName;
+		cin >> fileName;
+		ifstream is(fileName);
 
-		for (int i = 0; i < 2; i++) {
-			cout << "enter in filename with employee data (e.g. \"file.txt\")" << ((i == 1) ? "(this run will fail regardless of file name): " : ": ");
-			string fileName;
-			cin >> fileName;
-
-			if (i == 1) {
-				fileName = "ThisIsABadFileNameTestAsSpecifiedInTheAssignmentIReallyDidn'tWantToImplementAProgramBreakingFeatureButItHadToBeDone";
+		try {
+			if (!is) {
+				throw runtime_error("Invalid file name/file not found: \"" + fileName + "\", exiting program now");
 			}
+		}
 
-			ifstream is(fileName);
+		catch (runtime_error e) {
+			cout << endl << e.what();
+			cout << endl << endl;
+			system("pause");
+			return 0;
+		}
 
-			try {
-				if (!is) {
-					throw runtime_error("Invalid file name/file not found: \"" + fileName + "\", exiting program now");
-				}
-			}
+		vector<Employee*> readEmployees;
+		readEmployees.push_back(HourlyEmployee::read(is));
+		readEmployees.push_back(SalariedEmployee::read(is));
+		readEmployees.push_back(HourlyEmployee::read(is));
+		readEmployees.push_back(SalariedEmployee::read(is));
 
-			catch (runtime_error e) {
-				cout << endl << e.what();
-				cout << endl << endl;
-				system("pause");
-				return 0;
-			}
-
-			employees = Employee::read(is);
-
-			for (auto e : employees) {
-				printCheck(*e);
-			}
-
+		for (auto e : readEmployees) {
+			e->printCheck();
 		}
 	}
-
 
 	cout << endl << endl;
 	system("pause");
@@ -78,26 +79,4 @@ int main() {
 }
 
 
-void printCheck(const Employee& e) {
-	cout << endl << endl;
-	drawChar('-', 20);
-	cout << "FluffleShuffle Electronics";
-	drawChar('-', 20);
-	cout << endl << endl
-		<< "Pay to the order of " << e.getName();
-	drawChar('.', 10);
-	cout << "$" << e.calcPay()
-		<< endl << endl
-		<< "United Bank of This Programming Project" << endl;
-	drawChar('-', 68);
-	cout << endl << "Hours Worked: " << e.getHoursWorked() << endl
-		<< "Hourly Wage: " << e.getHourlyWage()
-		<< endl << endl;
-}
 
-
-void drawChar(char c, int num) {
-	for (int i = 0; i < num; i++) {
-		cout << c;
-	}
-}

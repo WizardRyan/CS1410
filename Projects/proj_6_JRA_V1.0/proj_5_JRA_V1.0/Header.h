@@ -4,18 +4,9 @@
 // if I am found in violation of this policy.
 
 #pragma once
-#include <iostream>
 #include "Employee.h"
+#include "HourlyEmployee.h"
+#include "SalariedEmployee.h"
 #include <stdexcept>
 
 using namespace std;
-
-//prints out the paycheck of an employee
-//accepts e, an employee object, by constant reference
-//no return
-void printCheck(const Employee& e);
-
-//prints out a character iteravely
-//accepts c, the character to be printed, and num, the amount of times to print
-//no return
-void drawChar(char c, int num);

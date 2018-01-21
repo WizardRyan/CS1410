@@ -17,12 +17,17 @@ using namespace std;
 class HourlyEmployee : public Employee{
 
 private:
-	int employeeNumber;
-	string name;
-	string streetAddress;
-	string phoneNumber;
+
 	double hourlyWage;
 	double hoursWorked;
+
+protected:
+
+	//the readData function, reads in data from a file
+	//accepts is, the filestream to read the data with
+	//no return
+	void virtual readData(ifstream& is) override;
+	HourlyEmployee() = default;
 
 public:
 
@@ -37,49 +42,31 @@ public:
 	//sets the employee's hours worked
 	void setHoursWorked(double hoursWorked);
 
-	//returns employee's hourly wage
 	double getHourlyWage() const;
 
-	//sets the employee's hourly wage
+	//sets the hourly wage of an hourly employee
 	void setHourlyWage(double hourlyWage);
-
-	//returns the employee's phone number
-	string getPhoneNumber() const;
-
-	//sets the employee's phone number
-	void setPhoneNumber(string phoneNumber);
-
-	//Do you really want me to do this ;_;? 
-	//returns the employee's street adress
-	string getStreetAddress() const;
-
-	//sets the employee's street address
-	void setStreetAddress(string streetAddress);
-
-	//returns the employee's name
-	string getName() const;
-
-	//sets the employee's name
-	void setName(string name);
 
 	//calculates the pay of an employee
 	//accepts no parameters
 	//returns the employee's total pay as a double
 	//requires employee's wage and hours worked be initialized
-	double calcPay() const;
-
-	//returns the employee's employee number
-	int getEmployeeNumber() const;
+	double virtual calcPay() const;
 
 	//the write function, will write a premade set of data to a file
-	//accepts o, an ofstream that assumes it already has created a file
+	//accepts o, an ofstream that assumes the stream has already has created a file
 	//no return
-	static void write(ofstream& o);
+	virtual void write(ofstream& o) override;
 
 	//the read function
 	//accepts is, an input stream that assumes it already has reference to an existing file
-	//returns a vector of employee pointers from the read data
-	static vector<HourlyEmployee*> read(ifstream& is);
+	//returns an employee pointer from the read data
+	static HourlyEmployee* read(ifstream& is);
+
+	//prints out the paycheck of an employee
+	//accepts no parameters
+	//no return
+	void virtual printCheck() override;
 
 };
 

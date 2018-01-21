@@ -8,7 +8,8 @@
 #include <math.h>
 #include <fstream>
 #include <vector>
-
+#include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -22,9 +23,15 @@ private:
 	string phoneNumber;
 
 
-public:
-
+protected:
+	Employee() = default;
+	//the readData function, reads in data from a file
+	//accepts is, the filestream to read the data with
+	//no return
+	void virtual readData(ifstream& is);
 	Employee(int employeeNumber, string name, string streetAddress, string phoneNumber);
+
+public:
 
 
 	//all the below functions require that their respective data member be initialized for them to work properly
@@ -48,11 +55,14 @@ public:
 	//sets the employee's name
 	void setName(string name);
 
+	//set the employee's number
+	void setEmployeeNumber(int num);
+
 	//calculates the pay of an employee
 	//accepts no parameters
 	//returns the employee's total pay as a double
 	//requires employee's wage and hours worked be initialized
-	double calcPay() const;
+	virtual double calcPay() const = 0;
 
 	//returns the employee's employee number
 	int getEmployeeNumber() const;
@@ -60,12 +70,17 @@ public:
 	//the write function, will write a premade set of data to a file
 	//accepts o, an ofstream that assumes it already has created a file
 	//no return
-	static void write(ofstream& o);
+	virtual void write(ofstream& o);
 	
-	//the read function
-	//accepts is, an input stream that assumes it already has reference to an existing file
-	//returns a vector of employee pointers from the read data
-	static vector<Employee*> read(ifstream& is);
 
+	//prints out the paycheck of an employee
+	//accepts no parameters
+	//no return
+	void virtual printCheck();
+
+	//prints out a character iteravely
+	//accepts c, the character to be printed, and num, the amount of times to print
+	//no return
+	void drawChar(char c, int num);
 };
 
