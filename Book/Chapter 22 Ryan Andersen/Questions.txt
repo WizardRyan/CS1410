@@ -1,0 +1,35 @@
+22.2 -
+	Start out by deciding what classes need to be included in the program
+	Determine what each class needs to do 
+	Then, determine how each class interacts with each other
+
+22.3 - Look for nouns when describing what the program needs to do (e.g. "Account", "Store", "Employee")
+
+22.4 - Look for verbs when describing the program's function (e.g. "compute", "total", "launch")
+
+22.5 - To keep cohesion 
+
+22.6 - 
+	VendingMachine
+	Coin
+	Product
+
+22.7 - 
+	Employee
+	Paycheck
+
+22.8 -
+	Customer
+	Store
+	Invoice
+	Product
+
+22.10 -
+	a aggregation (university has students)
+	b inheritance (TA is a student)
+	c inheritance (freshmen is a student)
+	d aggregation (prof has students)
+	e aggregation (car has doors)
+	f inheritence (truck is a vehicle)
+	g neither
+	h aggregation (sign has a color)
