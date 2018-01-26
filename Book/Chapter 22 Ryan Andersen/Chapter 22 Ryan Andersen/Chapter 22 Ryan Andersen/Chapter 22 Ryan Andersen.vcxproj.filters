@@ -24,6 +24,9 @@
     <ClCompile Include="Seat.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SeatGroup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h">
@@ -33,6 +36,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Seat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SeatGroup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

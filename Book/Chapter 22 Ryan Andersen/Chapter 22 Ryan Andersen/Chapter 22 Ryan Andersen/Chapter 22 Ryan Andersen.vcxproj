@@ -114,11 +114,13 @@
     <ClCompile Include="Airplane.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Seat.cpp" />
+    <ClCompile Include="SeatGroup.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Airplane.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="Seat.h" />
+    <ClInclude Include="SeatGroup.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

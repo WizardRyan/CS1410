@@ -5,6 +5,7 @@
 Airplane::Airplane()
 {
 	int positionNum = -1;
+	int fillGroup = 0;
 
 	for (int i = 0; i < NUM_OF_FIRST; i++) {
 		positionNum++;
@@ -25,9 +26,18 @@ Airplane::Airplane()
 			break;
 		}
 		this->seats.push_back(Seat(Seat::First, position));
+		fillGroup++;
+		if (fillGroup == this->FIRST_SEAT_GROUP_SIZE) {
+			vector<Seat*> s;
+			s.push_back(&(this->seats[i]));
+			s.push_back(&(this->seats[i - 1]));
+			this->seatGroups.push_back(SeatGroup(s));
+			fillGroup = 0;
+		}
 	}
 
 		positionNum = -1;
+		fillGroup = 0;
 	
 	for (int i = 0; i < NUM_OF_ECONOMY; i++) {
 		positionNum++;
@@ -54,41 +64,39 @@ Airplane::Airplane()
 			break;
 		}
 		this->seats.push_back(Seat(Seat::Economy, position));
+		fillGroup++;
+		if (fillGroup == this->ECONOMY_SEAT_GROUP_SIZE) {
+			vector<Seat*> s;
+			for (int k = 0; k < this->ECONOMY_SEAT_GROUP_SIZE; k++) {
+				s.push_back(& (this->seats[i - k]));
+			}
+
+			this->seatGroups.push_back(SeatGroup(s));
+			fillGroup = 0;
+		}
 	}
 }
 
 Airplane::~Airplane()
 {
+
 }
 
 void Airplane::showSeating() {
 
-	cout << "First Class: " << endl;
-	for (int i = 0; i < NUM_OF_FIRST; i+= 4) {
-		cout << this->seats[i].hasPassenger
-			 << this->seats[i + 1].hasPassenger
-			 << " " 
-			 << this->seats[i + 2].hasPassenger 
-			 << this->seats[i + 3].hasPassenger 
-			 << endl;
+	for (int i = 0; i < this->seatGroups.size(); i += 2) {
+		this->seatGroups[i].printSeats();
+		cout << " ";
+		this->seatGroups[i + 1].printSeats();
+		cout << endl;
+
 	}
-	cout << endl << endl
-		<< "Economy: " << endl;
-	for (int i = NUM_OF_FIRST; i < NUM_OF_ECONOMY + NUM_OF_FIRST; i += 6) {
-		cout << this->seats[i].hasPassenger
-			 << this->seats[i + 1].hasPassenger
-			 << this->seats[i + 2].hasPassenger
-			 << " " 
-			 << this->seats[i + 3].hasPassenger
-			 <<  this->seats[i + 4].hasPassenger
-			 << this->seats[i + 5].hasPassenger 
-			 << endl;
-	}
+
 }
 
 void Airplane::addPassengers(int type, int num, int pref)
 {
-	bool seatsWereAvailable = false;
+	/*bool seatsWereAvailable = false;
 
 	for (int i = 0; i < seats.size(); i++) {
 		if(!seatsWereAvailable){
@@ -135,6 +143,6 @@ void Airplane::addPassengers(int type, int num, int pref)
 				}
 			}
 		}
-	}
-	cout << endl << (seatsWereAvailable ? "Seats were added successfully!" : "There were no available seats") << endl << endl;
+	}*/
+	//cout << endl << (seatsWereAvailable ? "Seats were added successfully!" : "There were no available seats") << endl << endl;
 }
