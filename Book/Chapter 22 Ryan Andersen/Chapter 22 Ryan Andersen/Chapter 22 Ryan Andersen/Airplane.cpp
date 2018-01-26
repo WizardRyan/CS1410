@@ -4,20 +4,30 @@
 
 Airplane::Airplane()
 {
-	bool toggle = false;
+	int positionNum = -1;
 
 	for (int i = 0; i < NUM_OF_FIRST; i++) {
-		//switch between setting window seats and aisle seats
-		if(toggle) {
-			this->seats.push_back(Seat(Seat::First, static_cast<Seat::Position>(i % 2)));
+		positionNum++;
+		Seat::Position position;
+		switch (positionNum) {
+		case 0:
+			position = Seat::Window;
+			break;
+		case 1:
+			position = Seat::Aisle;
+			break;
+		case 2:
+			position = Seat::Aisle;
+			break;
+		case 3:
+			position = Seat::Window;
+			positionNum = -1;
+			break;
 		}
-		else {
-			this->seats.push_back(Seat(Seat::First, static_cast<Seat::Position>(i % 2)));
-		}
-		toggle = !toggle;
+		this->seats.push_back(Seat(Seat::First, position));
 	}
 
-	int positionNum = -1;
+		positionNum = -1;
 	
 	for (int i = 0; i < NUM_OF_ECONOMY; i++) {
 		positionNum++;
@@ -52,33 +62,79 @@ Airplane::~Airplane()
 }
 
 void Airplane::showSeating() {
-	this->seats[12].hasPassenger = true;
-
-	this->seats[199].hasPassenger = true;
 
 	cout << "First Class: " << endl;
 	for (int i = 0; i < NUM_OF_FIRST; i+= 4) {
-		cout << this->seats[i].hasPassenger << this->seats[i + 1].hasPassenger << " " << this->seats[i + 2].hasPassenger << this->seats[i + 3].hasPassenger << endl;
+		cout << this->seats[i].hasPassenger
+			 << this->seats[i + 1].hasPassenger
+			 << " " 
+			 << this->seats[i + 2].hasPassenger 
+			 << this->seats[i + 3].hasPassenger 
+			 << endl;
 	}
 	cout << endl << endl
 		<< "Economy: " << endl;
 	for (int i = NUM_OF_FIRST; i < NUM_OF_ECONOMY + NUM_OF_FIRST; i += 6) {
-		cout << this->seats[i].hasPassenger << this->seats[i + 1].hasPassenger  << this->seats[i + 2].hasPassenger << " " << this->seats[i + 3].hasPassenger <<  this->seats[i + 4].hasPassenger << this->seats[i + 5].hasPassenger << endl;
+		cout << this->seats[i].hasPassenger
+			 << this->seats[i + 1].hasPassenger
+			 << this->seats[i + 2].hasPassenger
+			 << " " 
+			 << this->seats[i + 3].hasPassenger
+			 <<  this->seats[i + 4].hasPassenger
+			 << this->seats[i + 5].hasPassenger 
+			 << endl;
 	}
 }
 
 void Airplane::addPassengers(int type, int num, int pref)
 {
-	for (auto s : this->seats) {
-		if (!s.hasPassenger) {
-			if (s.Aisle == type) {
-				
-			}
+	bool seatsWereAvailable = false;
 
-			else if (s.Economy == type) {
+	for (int i = 0; i < seats.size(); i++) {
+		if(!seatsWereAvailable){
+			if (!seats[i].hasPassenger) {
+				if (seats[i].position == pref) {
+					if (type == seats[i].type && type == Seat::First) {
+						if (num == 1) {
+							seats[i].hasPassenger = true;
+							seatsWereAvailable = true;
+						}
+						else {
+							if (!seats[i + 1].hasPassenger) {
+								seats[i].hasPassenger = true;
+								seats[i + 1].hasPassenger = true;
+								seatsWereAvailable = true;
+							}
+							i++;
+						}
+					}
 
+					else if (type == seats[i].type && type == Seat::Economy) {
+						if (num == 1) {
+							seats[i].hasPassenger = true;
+						}
+						else if (num == 2) {
+							if (!seats[i + 1].hasPassenger) {
+								seats[i].hasPassenger = true;
+								seats[i + 1].hasPassenger = true;
+								seatsWereAvailable = true;
+							}
+							i++;
+						}
+
+						else if (num == 3) {
+							if (!(seats[i + 1].hasPassenger || seats[i + 2].hasPassenger)) {
+								seats[i].hasPassenger = true;
+								seats[i + 1].hasPassenger = true;
+								seats[i + 2].hasPassenger = true;
+								seatsWereAvailable = true;
+							}
+							i += 2;
+						}
+					}
+				}
 			}
 		}
-
 	}
+	cout << endl << (seatsWereAvailable ? "Seats were added successfully!" : "There were no available seats") << endl << endl;
 }
