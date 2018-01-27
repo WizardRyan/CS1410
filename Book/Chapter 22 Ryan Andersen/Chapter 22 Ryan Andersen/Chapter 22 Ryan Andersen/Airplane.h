@@ -15,7 +15,7 @@ public:
 	void showSeating();
 
 private:
-	vector<Seat> seats;
+	vector<Seat *> seats;
 	vector<SeatGroup> seatGroups;
 	const int NUM_OF_FIRST = 20;
 	const int NUM_OF_ECONOMY = 180;

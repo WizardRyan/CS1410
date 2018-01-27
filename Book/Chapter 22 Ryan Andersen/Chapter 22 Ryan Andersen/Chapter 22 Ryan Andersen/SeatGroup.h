@@ -20,9 +20,10 @@ public:
 
 	void printSeats() const;
 
+	vector<Seat*> getSeats() const;
+
 private:
 	vector<Seat*> seats;
-
 
 };
 

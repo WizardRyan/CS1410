@@ -25,14 +25,15 @@ Airplane::Airplane()
 			positionNum = -1;
 			break;
 		}
-		this->seats.push_back(Seat(Seat::First, position));
+		this->seats.push_back(new Seat(Seat::First, position));
 		fillGroup++;
 		if (fillGroup == this->FIRST_SEAT_GROUP_SIZE) {
 			vector<Seat*> s;
-			s.push_back(&(this->seats[i]));
-			s.push_back(&(this->seats[i - 1]));
+			s.push_back(this->seats[i - 1]);
+			s.push_back(this->seats[i]);
 			this->seatGroups.push_back(SeatGroup(s));
 			fillGroup = 0;
+			s.clear();
 		}
 	}
 
@@ -63,12 +64,13 @@ Airplane::Airplane()
 			positionNum = -1;
 			break;
 		}
-		this->seats.push_back(Seat(Seat::Economy, position));
+		this->seats.push_back(new Seat(Seat::Economy, position));
 		fillGroup++;
 		if (fillGroup == this->ECONOMY_SEAT_GROUP_SIZE) {
 			vector<Seat*> s;
-			for (int k = 0; k < this->ECONOMY_SEAT_GROUP_SIZE; k++) {
-				s.push_back(& (this->seats[i - k]));
+			for (int k = ECONOMY_SEAT_GROUP_SIZE - 1; k >= 0; k--) {
+				s.push_back(this->seats[i + NUM_OF_FIRST - k]);
+				k;
 			}
 
 			this->seatGroups.push_back(SeatGroup(s));
@@ -96,53 +98,20 @@ void Airplane::showSeating() {
 
 void Airplane::addPassengers(int type, int num, int pref)
 {
-	/*bool seatsWereAvailable = false;
+	bool seatsWereAvailable = false;
 
-	for (int i = 0; i < seats.size(); i++) {
-		if(!seatsWereAvailable){
-			if (!seats[i].hasPassenger) {
-				if (seats[i].position == pref) {
-					if (type == seats[i].type && type == Seat::First) {
-						if (num == 1) {
-							seats[i].hasPassenger = true;
-							seatsWereAvailable = true;
-						}
-						else {
-							if (!seats[i + 1].hasPassenger) {
-								seats[i].hasPassenger = true;
-								seats[i + 1].hasPassenger = true;
-								seatsWereAvailable = true;
-							}
-							i++;
-						}
-					}
-
-					else if (type == seats[i].type && type == Seat::Economy) {
-						if (num == 1) {
-							seats[i].hasPassenger = true;
-						}
-						else if (num == 2) {
-							if (!seats[i + 1].hasPassenger) {
-								seats[i].hasPassenger = true;
-								seats[i + 1].hasPassenger = true;
-								seatsWereAvailable = true;
-							}
-							i++;
-						}
-
-						else if (num == 3) {
-							if (!(seats[i + 1].hasPassenger || seats[i + 2].hasPassenger)) {
-								seats[i].hasPassenger = true;
-								seats[i + 1].hasPassenger = true;
-								seats[i + 2].hasPassenger = true;
-								seatsWereAvailable = true;
-							}
-							i += 2;
-						}
+	for (int i = 0; i < this->seatGroups.size(); i++) {
+		//were seats available?
+		if (!seatsWereAvailable) {
+			//is the group size bigger than the number of seats available?
+			if (!(num > seatGroups[i].getNumOfSeats())) {
+				for (int k = 0; k < this->seatGroups[i].getNumOfSeats(); k++) {
+					//is the seat a first class, and if so, is the caller a first class flyer?
+					if (seatGroups[i].getSeats()[k]->type == type && type == Seat::First) {
+						//does the seat match the flyer's preference?
 					}
 				}
 			}
 		}
-	}*/
-	//cout << endl << (seatsWereAvailable ? "Seats were added successfully!" : "There were no available seats") << endl << endl;
+	}
 }

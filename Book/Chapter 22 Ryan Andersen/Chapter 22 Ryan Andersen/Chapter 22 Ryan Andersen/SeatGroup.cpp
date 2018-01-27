@@ -29,6 +29,10 @@ void SeatGroup::printSeats() const
 {
 	for (int i = 0; i < this->seats.size(); i++) {
 		cout << this->seats[i]->hasPassenger;
-
 	}
+}
+
+vector<Seat*> SeatGroup::getSeats() const
+{
+	return this->seats;
 }
