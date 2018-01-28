@@ -22,7 +22,7 @@ public:
 	bool hasPassenger = false;
 	ClassType type;
 	Position position;
-
+	
 private:
 
 

@@ -18,6 +18,14 @@ public:
 
 	int getNumOfSeats() const;
 
+	int getNumOfAvailableSeats() const;
+
+	Seat::ClassType getTypeOfSeatGroup() const;
+
+	vector<Seat*> getAvailableSeats() const;
+
+	bool availableSeatsAreConsecutive() const;
+
 	void printSeats() const;
 
 	vector<Seat*> getSeats() const;
