@@ -1,3 +1,9 @@
+
+//I declare that the following source code was written solely by me.
+//I understand that copying any source code, in whole or in part, 
+// constitutes cheating, and that I will receive a zero on this project
+// if I am found in violation of this policy.
+
 #include "Airplane.h"
 
 
@@ -96,22 +102,110 @@ void Airplane::showSeating() {
 
 }
 
-void Airplane::addPassengers(int type, int num, int pref)
+void Airplane::addPassengersRecursive(int type, int num, int pref, bool success, bool split, bool firstAvailable, bool failure)
 {
-	bool seatsWereAvailable = false;
+	bool seatsWereAssigned = false;
 
-	for (int i = 0; i < this->seatGroups.size(); i++) {
-		//were seats available?
-		if (!seatsWereAvailable) {
-			//is the group size bigger than the number of seats available?
-			if (!(num > seatGroups[i].getNumOfSeats())) {
-				for (int k = 0; k < this->seatGroups[i].getNumOfSeats(); k++) {
-					//is the seat a first class, and if so, is the caller a first class flyer?
-					if (seatGroups[i].getSeats()[k]->type == type && type == Seat::First) {
-						//does the seat match the flyer's preference?
+	if (success) {
+		cout << "Seats added succesfully!" << endl;
+		return;
+	}
+	
+	else if (failure) {
+		cout << endl << "There weren't enough available seats." << endl;
+		return;
+	}
+
+	if (!firstAvailable) {
+		for (int i = 0; i < this->seatGroups.size(); i++) {
+			if (!seatsWereAssigned) {
+				//do the seats class match the flyer's class? (Economy or First)
+				if (static_cast<int>(seatGroups[i].getTypeOfSeatGroup()) == type) {
+					//are there enough available seats in that group for the group to fit?
+					if (seatGroups[i].getNumOfAvailableSeats() >= num) {
+						bool matchesPref = false;
+						for (int k = 0; k < seatGroups[i].getNumOfAvailableSeats(); k++) {
+							//do one of the available seats match the flyer's preference?
+							if (seatGroups[i].getAvailableSeats()[k]->position == pref) {
+								if(split){
+									//force groups to split up. Assign them to the first available seat that matches their pref
+									assignGroup(i, num, pref);
+									seatsWereAssigned = true;
+									cout << endl <<  "(group had to be split)" << endl;
+								}
+								else {
+									//are those seats next to each other?
+									if (seatGroups[i].availableSeatsAreConsecutive()) {
+										//sucess! the group will be seated next to each other in the preffered seat
+										assignGroup(i, num, pref);
+										seatsWereAssigned = true;
+									}
+								}
+							}
+						}
 					}
 				}
 			}
+		}
+	}
+
+	else {
+		//assign to the first seat available
+		//are there enough seats?
+		int seatNums = 0;
+		for (int i = 0; i < this->seats.size(); i++) {
+			if (this->seats[i]->hasPassenger == false) {
+				seatNums++;
+			}
+		}
+
+		//if so, assign them
+		if (seatNums >= num) {
+			int seatsAssigned = 0;
+			for (int i = 0; i < this->seats.size(); i++) {
+				if (seatsAssigned < num) {
+					if (this->seats[i]->hasPassenger == false) {
+						this->seats[i]->hasPassenger = true;
+						seatsAssigned++;
+					}
+				}
+			}
+			cout << endl << "(Flyer was assigned to first available seat)" << endl;
+			seatsWereAssigned = true;
+		}
+	}
+
+	if (seatsWereAssigned) {
+		addPassengersRecursive(type, num, pref, true, false, false, false);
+	}
+	else if (!split) {
+		addPassengersRecursive(type, num, pref, false, true, false, false);
+	}
+	else if (!firstAvailable) {
+		addPassengersRecursive(type, num, pref, false, false, true, false);
+	}
+	else if (!failure) {
+		addPassengersRecursive(type, num, pref, false, false, false, true);
+	}
+
+}
+
+void Airplane::addPassengers(int type, int num, int pref) {
+	addPassengersRecursive(type, num, pref, false, false, false, false);
+}
+
+void Airplane::assignGroup(int i, int num, int pref) {
+	if (num == 1) {
+		for (auto s : this->seatGroups[i].getAvailableSeats()) {
+			if (s->position == pref) {
+				s->hasPassenger = true;
+			}
+		}
+	}
+	else {
+		vector<Seat *> seatsToAdd = seatGroups[i].getAvailableSeats();
+		for (int s = 0; s < num; s++) {
+			seatsToAdd[s]->hasPassenger = true;
 		}
 	}
 }
