@@ -1,0 +1,38 @@
+11.1 
+	Not entirely sure what it means by "Make code walkthroughs", but I'll take a stab at it
+
+	0 - with a size of zero, accessing any index of the vector isn't going to work,
+	but it appears the algorithm isn't going to run any code if the vector is that small anyways
+
+	1 - if the size is 1, it won't run the loop in the algorithm, as it checks if "next" (0) is less than "size - 1", (0)
+	2 - it looks like it still works, as min_position checks if i <= "to", instead of only checking if it's less than "to"
+	3 - looks like it works as expected
+
+11.2
+	a) O(n^2)
+	b) O(n^10)
+	c) O(n^4)
+	d) O(n^4)
+	e) O(n^3)
+	f) O(n^3)
+	g) O(n)
+	h) O(n^2)
+	i) O(2^n)
+	j) O(n)
+11.5 
+	10s, 50s
+
+11.6
+	10, 20, 40, 11, 5.3^e+301 //??
+	15, 45, 135, 17.3, 5.74e+602
+	50, 500, 5000, 66.6, 9.3e+2709
+
+//these answers aren't lining up with what we did in class if I remember correctly, what am I doing wrong?
+//to calcuate time with 3,000 operations for O(n log(n)) I did ((3,000 * log(3,000)) / (1,000 * log(1,000))) * 5. Am I using the wrong equation?
+// to calculate time with 3,000 operations for O(n^2), I did (2^3,000 / 2^1,000) * 5
+
+11.10
+	O(n^2)
+
+11.11
+	yup

@@ -1,0 +1,25 @@
+11.12 - 
+	define a new object, say, data, that has a two key pairs, value: int and index: int.
+	create a copy of the passed in vector, filled with data objects. the value is equal to the value of the element passed in from the vector, 
+	while the index is equal to the index of that value when the vector was first copied.
+	for example, if you passed in a vector of two items, it would result in a vector of two data objects as shown below.
+
+			vector<int>{3, 2}
+			vector<data>{{value: 3, index: 0}, {value: 2, index: 1}}
+	
+	sort the vector by value, then compare each data object's value to the neighboring element's value, as shown in 11.11
+	then sort the vector by index, to return it to its original order
+	return that vector.
+11.3 - 
+	Is this an efficient algorithm? I guess it depends what you're comparing it to, and the size of the data set passed in
+	but I would say no, as it would generally be more efficient to use a merge sort or something. (unless you were sorting a very small data set)
+	In fact, I think this question is describing a version of a binary insertion sort.
+	Estimate element visits: n, for finding min element to insert + log(n) for binary search, so O(n log n)
+	But, I also googled it, and it looks like we should consider the time used to move the element
+	and it normally results in O(n^2).
+	https://en.wikipedia.org/wiki/Insertion_sort (scroll down to the "variants" section, second paragraph)
+	I should really start using rich text documents at this point
+
+11
+	
+	
