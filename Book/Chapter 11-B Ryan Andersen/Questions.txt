@@ -14,11 +14,11 @@
 	Is this an efficient algorithm? I guess it depends what you're comparing it to, and the size of the data set passed in
 	but I would say no, as it would generally be more efficient to use a merge sort or something. (unless you were sorting a very small data set)
 	In fact, I think this question is describing a version of a binary insertion sort.
-	Estimate element visits: n, for finding min element to insert + log(n) for binary search, so O(n log n)
-	But, I also googled it, and it looks like we should consider the time used to move the element
+	Estimate element visits: n, for finding min element to insert + log(n) for binary search, so O(n log n) (I think)
+	But, I also googled it, and it looks like we should consider the time used to move the elements up the array
 	and it normally results in O(n^2).
 	https://en.wikipedia.org/wiki/Insertion_sort (scroll down to the "variants" section, second paragraph)
-	I should really start using rich text documents at this point
+	...I should really start using rich text documents at this point
 
 11
 	

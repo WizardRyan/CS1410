@@ -4,13 +4,8 @@
 	0 - with a size of zero, accessing any index of the vector isn't going to work,
 	but it appears the algorithm isn't going to run any code if the vector is that small anyways
 
-<<<<<<< HEAD
 	1 - if the size is 1, it won't run the loop in the algorithm, as it checks if "next" (0) is less than "size - 1", (0)
 	2 - it looks like it still works, as min_position checks if i <= "to", instead of only checking if it's less than "to"
-=======
-	1 - if the size is 1, it won't run the loop in the algorithm, as it checks if next (0) is less than size - 1, (0)
-	2 - it looks like it still works, as min_position checks if i <= "to", instead of only checking if it's less than
->>>>>>> 7e816ac9508129621cf7662c1d8496d129435ee9
 	3 - looks like it works as expected
 
 11.2
