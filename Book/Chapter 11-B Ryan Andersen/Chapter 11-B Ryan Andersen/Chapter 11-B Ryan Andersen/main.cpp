@@ -34,8 +34,23 @@ bool binary_search(vector<int> v, int from, int to, int value, int& m)
 		}
 
 		else {
+
 			int mid = (from + to) / 2;
-			m = v[mid + 1];
+
+			int min = v[0];
+			for (int i = 0; i < v.size(); i++) {
+				if (v[i] < min) {
+					min = v[i];
+				}
+			}
+
+			if (value < min) {
+				m = v[mid];
+			}
+
+			else {
+				m = v[mid + 1];
+			}
 		}
 
 		return false;
@@ -59,8 +74,8 @@ int main() {
 	vector<int> theNums = { 1, 3, 4, 8, 10 };
 	int result = 0;
 
-	// just play with the value (4th param) to test its functionality
-	cout << (binary_search(theNums, 0, theNums.size() - 1, 4, result) ? "true" : "false") ;
+	// play with the value (4th param) to test its functionality
+	cout << (binary_search(theNums, 0, theNums.size() - 1, 0, result) ? "true" : "false") ;
 	cout << endl <<  result;
 	
 	cout << endl << endl;

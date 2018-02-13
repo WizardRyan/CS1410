@@ -2,7 +2,7 @@
 
 int main(){
 	rand_seed();
-	vector<int> v(16);
+	vector<int> v(8);
 	for (int i = 0; i < v.size(); i++)
 		v[i] = rand_int(1, 100);
 	print(v);
