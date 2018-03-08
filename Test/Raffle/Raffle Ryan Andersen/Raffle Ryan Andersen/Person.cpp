@@ -11,7 +11,7 @@ Person::~Person()
 
 string Person::getFullName()
 {
-	return this->firstName + " " + this->lastName;
+	return this->lastName + this->firstName;
 }
 
 void Person::setFullName(string firstName, string lastName)

@@ -1,5 +1,6 @@
 #pragma once
 #include "Person.h"
+
 class Faculty :
 	public Person
 {
@@ -15,7 +16,8 @@ public:
 
 	virtual void printInfo();
 
-	const int TYPE = 2;
+	const Role role = Role::Faculty;
+
 private:
 	int yearsOfService;
 	string subjectArea;

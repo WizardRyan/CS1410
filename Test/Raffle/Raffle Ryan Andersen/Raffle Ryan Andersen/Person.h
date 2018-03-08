@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include "Prize.h"
+#include "Shared.h"
 using namespace std;
 
 class Person

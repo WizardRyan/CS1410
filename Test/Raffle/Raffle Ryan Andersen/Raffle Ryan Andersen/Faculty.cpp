@@ -41,6 +41,7 @@ Prize Faculty::getPrize()
 void Faculty::printInfo()
 {
 	cout << "Name: " << this->getFullName() << endl
+		<< "Gender: " << this->getGender() << endl
 		<< "Subject Area: " << this->subjectArea << endl
 		<< "Prize: " << (this->prize ? "No prize" : this->prize->getName());
 }

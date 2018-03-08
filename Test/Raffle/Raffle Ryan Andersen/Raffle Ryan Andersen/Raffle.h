@@ -1,6 +1,7 @@
 #pragma once
 #include "Person.h"
-#include <list>
+#include "List.h"
+#include "Algorithms.h"
 
 class Raffle
 {
@@ -10,14 +11,14 @@ public:
 	
 	Person* findRegistrant(string fname, string lname);
 	int addRegistrant(Person* person);
-	void addToSortedRegistrants(Person* person);
 	void manualAddRegistrant(Person* p, int position);
 	void addPrize(Prize p);
+	void printChronoRegistrants();
+	void printSortedRegistrants();
 	void distributeRaffle();
 
 private:
-	list<Person*> registrants;
-	vector<Person*> sortedRegistrants;
-	list<Prize> prizes;
+	List registrants;
+	vector<Prize> prizes;
 };
 

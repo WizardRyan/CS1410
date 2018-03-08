@@ -1,10 +1,11 @@
 #pragma once
 #include <string>
+#include "Shared.h"
 using namespace std;
 class Prize
 {
 public:
-	Prize(string name, string companyName, int association);
+	Prize(string name, string companyName, Role role);
 	~Prize();
 
 	string getName();
@@ -15,6 +16,6 @@ public:
 private:
 	string name;
 	string companyName;
-	int association = 0;
+	Role role;
 };
 

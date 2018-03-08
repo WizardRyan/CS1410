@@ -21,7 +21,7 @@ Prize Student::getPrize()
 
 void Student::printInfo()
 {
-	cout << "Name: " << this->getFullName() << endl
+	cout << "Name: " << this->getFirstName() << " " << this->getLastName() << endl
 		<< "Gender: " << this->getGender() << endl
 		<< "Age: " << this->age << endl
 		<< "Class: " << this->sClass << endl

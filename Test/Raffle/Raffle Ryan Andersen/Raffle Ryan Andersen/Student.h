@@ -11,7 +11,7 @@ public:
 	Prize getPrize();
 	virtual void printInfo();
 
-	const int TYPE = 1;
+	const Role role = Role::Student;
 
 private:
 	string sClass;

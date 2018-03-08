@@ -1,7 +1,7 @@
 #include "Prize.h"
 
 
-Prize::Prize(string name, string companyName) : name{ name }, companyName{companyName}
+Prize::Prize(string name, string companyName, Role role) : name{ name }, companyName{companyName}, role{role}
 {
 }
 

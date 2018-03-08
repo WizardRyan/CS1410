@@ -67,6 +67,7 @@ void merge_sort(vector<int>& a)
 			merge(a, low, low + size - 1, min(low + size * 2 - 1, a.size() - 1));
 		}
 	}
-
-	//got help from watching this video https://www.youtube.com/watch?v=lOUe8Q9jQow
 }
+
+
+
