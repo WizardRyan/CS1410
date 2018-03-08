@@ -1,2 +1,2 @@
 #pragma once
-enum class Role { Student, Faculty };
+enum class Role { Student, Faculty, Person, Any };

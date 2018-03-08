@@ -11,16 +11,17 @@ public:
 	int getYears();
 	void setSubject(string sub);
 	string getSubject();
-	void setPrize(Prize* prize);
-	Prize getPrize();
+	virtual void setPrize(Prize* prize);
+	Prize* getPrize();
+	virtual Role getRole();
 
 	virtual void printInfo();
 
-	const Role role = Role::Faculty;
 
 private:
 	int yearsOfService;
 	string subjectArea;
 	Prize* prize = NULL;
+	const Role role = Role::Faculty;
 };
 

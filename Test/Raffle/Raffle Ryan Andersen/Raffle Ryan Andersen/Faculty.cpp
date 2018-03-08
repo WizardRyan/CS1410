@@ -33,15 +33,20 @@ void Faculty::setPrize(Prize * prize)
 	this->prize = prize;
 }
 
-Prize Faculty::getPrize()
+Prize* Faculty::getPrize()
 {
-	return *this->prize;
+	return this->prize;
+}
+
+Role Faculty::getRole()
+{
+	return this->role;
 }
 
 void Faculty::printInfo()
 {
-	cout << "Name: " << this->getFullName() << endl
-		<< "Gender: " << this->getGender() << endl
+	cout << "Name: " <<  Person::getLastName() + " " + Person::getFirstName() << endl
+		<< "Gender: " << Person::getGender() << endl
 		<< "Subject Area: " << this->subjectArea << endl
-		<< "Prize: " << (this->prize ? "No prize" : this->prize->getName());
+		<< "Prize: " << (this->prize == NULL ? "No prize" : this->prize->getName());
 }

@@ -12,6 +12,7 @@ public:
 	void setName(string name);
 	string getCompanyName();
 	void setCompanyName(string name);
+	Role getRole();
 
 private:
 	string name;

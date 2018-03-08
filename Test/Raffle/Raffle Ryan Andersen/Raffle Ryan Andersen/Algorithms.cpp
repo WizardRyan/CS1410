@@ -108,16 +108,14 @@ Sorts the elements in a range of a vector.
 @param from start of the range to sort
 @param to end of the range to sort
 */
-void merge_sort_people(vector<Person*>& a)
+void merge_sort_people(vector<Person*>& a, int from, int to)
 {
-	//determine the size of the vector to be merged
-	for (int size = 1; size < a.size() - 1; size++) {
-		//determine the left index of the vector that needs to be merged
-		for (int low = 0; low < a.size() - 1 - size; low += size * 2) {
-			//if the size is smaller than the right index when calculated off of low, merge that last vector of a different size
-			merge(a, low, low + size - 1, min(low + size * 2 - 1, a.size() - 1));
-		}
-	}
+	if (from == to) return;
+	int mid = (from + to) / 2;
+	// Sort the first and the second half
+	merge_sort_people(a, from, mid);
+	merge_sort_people(a, mid + 1, to);
+	merge(a, from, mid, to);
 }
 
 int min(int x, int y) { return (x<y) ? x : y; }

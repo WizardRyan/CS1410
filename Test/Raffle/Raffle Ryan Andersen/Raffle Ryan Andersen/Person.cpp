@@ -32,6 +32,7 @@ void Person::setGender(string gender)
 
 string Person::getFirstName()
 {
+
 	return this->firstName;
 }
 
@@ -48,6 +49,15 @@ string Person::getLastName()
 void Person::setLastName(string name)
 {
 	this->lastName = name;
+}
+
+bool Person::hasJCW() {
+	return this->hasMeal;
+}
+
+void Person::setMeal(bool hasMeal)
+{
+	this->hasMeal = hasMeal;
 }
 
 

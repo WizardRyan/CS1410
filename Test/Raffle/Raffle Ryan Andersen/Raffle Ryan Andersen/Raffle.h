@@ -2,6 +2,7 @@
 #include "Person.h"
 #include "List.h"
 #include "Algorithms.h"
+#include <list>
 
 class Raffle
 {
@@ -16,9 +17,11 @@ public:
 	void printChronoRegistrants();
 	void printSortedRegistrants();
 	void distributeRaffle();
+	void printWinners();
 
 private:
 	List registrants;
-	vector<Prize> prizes;
+	List winners;
+	list<Prize> prizes;
 };
 

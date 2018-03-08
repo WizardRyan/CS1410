@@ -28,3 +28,8 @@ void Prize::setCompanyName(string name)
 {
 	this->companyName = name;
 }
+
+Role Prize::getRole()
+{
+	return this->role;
+}

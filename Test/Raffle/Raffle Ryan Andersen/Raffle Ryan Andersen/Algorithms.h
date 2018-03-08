@@ -25,7 +25,7 @@ void merge(vector<Person*>& a, int from, int mid, int to);
 Sorts the elements in a range of a vector.
 @param a the vector with the elements to sort
 */
-void merge_sort_people(vector<Person*>&);
+void merge_sort_people(vector<Person*>& a, int from, int to);
 
 //the min function, returns smaller value
 //accepts x and y, the values to be compared

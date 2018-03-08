@@ -14,16 +14,23 @@ void Student::setPrize(Prize * prize)
 	this->prize = prize;
 }
 
-Prize Student::getPrize()
+Prize* Student::getPrize()
 {
-	return *(this->prize);
+	return this->prize;
 }
 
 void Student::printInfo()
 {
-	cout << "Name: " << this->getFirstName() << " " << this->getLastName() << endl
-		<< "Gender: " << this->getGender() << endl
-		<< "Age: " << this->age << endl
-		<< "Class: " << this->sClass << endl
-		<< "Prize: " << (this->prize ? "No Prize" : this->prize->getName());
+	string name =  Person::getLastName() + " " + Person::getFirstName()  ;
+
+	cout << "Name: " << name << endl;
+	cout << "Gender: " << Person::getGender() << endl;
+	cout << "Age: " << this->age << endl;
+	cout << "Class: " << this->sClass << endl;
+	cout << "Prize: " << (this->prize == NULL ? "No Prize" : this->prize->getName());
+}
+
+Role Student::getRole()
+{
+	return this->role;
 }
