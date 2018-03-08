@@ -64,7 +64,7 @@ void addRegistrant(bool admin) {
 int main() {
 	string input;
 	do {
-		cout << endl << "1: Registration Mode" << endl << "2: Administratrion Mode" << endl << "q: quit program" << endl << "Enter selection: ";
+		cout << endl << "1: Registration Mode" << endl << "2: Administration Mode" << endl << "q: quit program" << endl << "Enter selection: ";
 		cin >> input;
 
 		if (input == "1") {
