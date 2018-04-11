@@ -1,0 +1,5 @@
+1. A source code repository
+2. Bugs existing at different points depending on when features have been added or when code has been worked on
+3. True (unless you consider a working copy a "different file")
+4. commit/check in your changes
+5. A copy of a file from a repository that a developer is currently editing
