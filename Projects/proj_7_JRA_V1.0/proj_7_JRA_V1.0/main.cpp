@@ -1,5 +1,15 @@
-#include <string>
-#include <iostream>
+// Author: Ryan Andersen
+// Assignment: Project 7
+// Instructor: Blair
+// Class: CS 1410
+// Date Written: 4/12/18
+// Description: a program for implementing operator overloading
+
+
+//I declare that the following source code was written solely by me.
+//I understand that copying any source code, in whole or in part, 
+// constitutes cheating, and that I will receive a zero on this project
+// if I am found in violation of this policy.
 #include "Fraction.h"
 
 int main() {
