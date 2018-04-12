@@ -95,9 +95,9 @@ Fraction Fraction::operator--(int)
 	return temp;
 }
 
-ostream& operator<<(ostream& out, const Fraction frac) {
+ostream& operator<<(ostream& out, const Fraction& frac) {
 
-	out << frac.numerator << (frac.denominator == 1 ? "" : " / " + to_string(frac.denominator));
+	return out << frac.numerator << (frac.denominator == 1 ? "" : " / " + to_string(frac.denominator));
 }
 
 Fraction operator*(const Fraction&a, const Fraction& b) {
@@ -117,7 +117,7 @@ Fraction operator+(const Fraction& a,  const Fraction& b) {
 	Fraction bb = b;
 
 	equalizeDenominators(aa, bb);
-	Fraction c(aa.numerator + bb.numerator, aa.denominator + bb.denominator);
+	Fraction c(aa.numerator + bb.numerator, aa.denominator);
 	c.optimize();
 	return c;
 }
@@ -127,7 +127,7 @@ Fraction operator-(const Fraction& a, const Fraction& b) {
 	Fraction bb = b;
 
 	equalizeDenominators(aa, bb);
-	Fraction c(aa.numerator - bb.numerator, aa.denominator - bb.denominator);
+	Fraction c(aa.numerator - bb.numerator, aa.denominator);
 	c.optimize();
 	return c;
 }

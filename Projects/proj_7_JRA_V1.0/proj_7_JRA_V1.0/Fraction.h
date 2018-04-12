@@ -21,7 +21,7 @@ public:
 	//this overloads the << operator, to be able to output a fraction
 	//accepts out, the stream to use, and frac, the fraction to output
 	//returns a stream
-	friend ostream& operator<<(ostream& out, const Fraction frac);
+	friend ostream& operator<<(ostream& out, const Fraction& frac);
 
 	//each one of these functions overloads the given binary operator, allowing the correct operation to be performed
 	//accepts a and b, the fractions to be used
