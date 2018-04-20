@@ -1,5 +1,9 @@
-#include "Fraction.h"
+//I declare that the following source code was written solely by me.
+//I understand that copying any source code, in whole or in part, 
+// constitutes cheating, and that I will receive a zero on this project
+// if I am found in violation of this policy.
 
+#include "Fraction.h"
 
 int getGcf(int n1, int n2) {
 	// derived from Euclid's algorithm https://en.wikipedia.org/wiki/Euclidean_algorithm
@@ -95,9 +99,9 @@ Fraction Fraction::operator--(int)
 	return temp;
 }
 
-ostream& operator<<(ostream& out, const Fraction frac) {
+ostream& operator<<(ostream& out, const Fraction& frac) {
 
-	out << frac.numerator << (frac.denominator == 1 ? "" : " / " + to_string(frac.denominator));
+	return out << frac.numerator << (frac.denominator == 1 ? "" : " / " + to_string(frac.denominator));
 }
 
 Fraction operator*(const Fraction&a, const Fraction& b) {
@@ -117,7 +121,7 @@ Fraction operator+(const Fraction& a,  const Fraction& b) {
 	Fraction bb = b;
 
 	equalizeDenominators(aa, bb);
-	Fraction c(aa.numerator + bb.numerator, aa.denominator + bb.denominator);
+	Fraction c(aa.numerator + bb.numerator, aa.denominator);
 	c.optimize();
 	return c;
 }
@@ -127,7 +131,7 @@ Fraction operator-(const Fraction& a, const Fraction& b) {
 	Fraction bb = b;
 
 	equalizeDenominators(aa, bb);
-	Fraction c(aa.numerator - bb.numerator, aa.denominator - bb.denominator);
+	Fraction c(aa.numerator - bb.numerator, aa.denominator);
 	c.optimize();
 	return c;
 }
