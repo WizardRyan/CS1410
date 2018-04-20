@@ -1,0 +1,28 @@
+// Author: Ryan Andersen
+// Assignment: Lab 12
+// Instructor: Blair
+// Class: CS 1410
+// Date Written: 4/16/18
+// Description: a psuedo-code file for practicing memory management
+
+
+//I declare that the following source code was written solely by me.
+//I understand that copying any source code, in whole or in part, 
+// constitutes cheating, and that I will receive a zero on this project
+// if I am found in violation of this policy.
+
+
+// The overloaded assignment operator, assigns one DynArray to another
+// accepts rho, a DynArray object
+// returns a DynArray
+
+// check for self assignment, if so, return this
+
+// delete any values in the current object
+    
+// create an array big enough to hold rho's data
+
+// copy that data
+
+// return the new DynArray (this)
+
