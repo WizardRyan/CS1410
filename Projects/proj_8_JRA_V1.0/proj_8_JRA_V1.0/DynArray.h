@@ -4,9 +4,15 @@ class DynArray
 public:
 	DynArray();
 	~DynArray();
+	DynArray(int n);
+	
+	int size() const;
+	int capacity() const;
+	void clear();
 
-	int size = 0;
-	int capacity = 0;
-
+private:
+	int si = 0;
+	int cap = 0;
+	int data[];
 };
 
