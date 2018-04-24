@@ -1,7 +1,7 @@
 // Project #8
 // CS 1410
-// Your name
-// the date
+// Ryan Andersen
+// 4/24/18
 // ------------------------
 #include "DynArray.h"
 #include <iostream>
