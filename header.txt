@@ -1,9 +1,9 @@
 // Author: Ryan Andersen
-// Assignment: Chapter 12-A
+// Assignment: Project 7
 // Instructor: Blair
 // Class: CS 1410
-// Date Written: 1/13/18
-// Description: a program for practicing Lists
+// Date Written: 4/12/18
+// Description: a program for implementing operator overloading
 
 
 //I declare that the following source code was written solely by me.
