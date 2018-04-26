@@ -41,6 +41,31 @@ public:
 	// returns an int, the element that was selected.
 	int at(int n);
 
+	// the back function, returns the last element in the DynArray by reference, without removing that element
+	// no parameters
+	// returns the last value in the array by reference
+	T& back();
+
+	// the front function, returns the first element in an array by reference, without removing that element
+	// no parameters
+	// returns the first element in the array by reference
+	T& front();
+
+	// overload the [] operator to work 
+	// accepts an int, the index to access
+	// returns the element at that index
+	T& operator[](int n);
+
+	// copy constructor, performs a deep copy of all the data in a DynArray
+	// accepts reference to an object to be copied
+	// returns itself
+	DynArray(const DynArray& right);
+
+	// overloaded assignment operator, performs a deep copy of all the data in a DynArray
+	// accepts reference to an object to be copied
+	// returns itself
+	DynArray& operator=(const DynArray& right);
+
 private:
 	int si = 0;
 	int cap = 0;
@@ -51,7 +76,7 @@ template <class T>
 DynArray<T>::DynArray()
 {
 	this->cap = 2;
-	this->data = new int[this->cap];
+	this->data = new T[this->cap];
 }
 
 template <class T>
@@ -88,11 +113,11 @@ void DynArray<T>::clear()
 }
 
 template <class T>
-void DynArray<T>::push_back(int n)
+void DynArray<T>::push_back(T n)
 {
 	if (this->si + 1 > this->cap) {
 		this->cap *= 2;
-		int *newArr = new T[this->cap];
+		T *newArr = new T[this->cap];
 		// copy fails due to warning
 		// std::copy(this->data, this->data + this->si, newArr);
 		for (int i = 0; i < this->si; i++) {
@@ -122,4 +147,56 @@ int DynArray<T>::at(int n)
 	else {
 		throw runtime_error("Index out of bounds!");
 	}
+}
+
+template <class T>
+T& DynArray<T>::back() {
+	if (this->si == 0)
+		throw runtime_error("There are no values in the array!");
+	return this->data[this->si - 1];
+}
+
+template <class T>
+T& DynArray<T>::front() {
+	if (this->si == 0)
+		throw runtime_error("There are no values in the array!");
+	return this->data[0];
+}
+
+template <class T>
+T& DynArray<T>::operator[](int n) {
+	if (n < this->si) {
+		return this->data[n];
+	}
+
+	else {
+		throw runtime_error("Index out of bounds!");
+	}
+}
+
+template <class T>
+DynArray<T>::DynArray(const DynArray& right) {
+	if (this != &right)
+	{
+		delete[] this->data;
+		this->si = right.size();
+		this->cap = right.capacity();
+		this->data = new T[this->cap];
+		for (int i = 0; i < this->si; i++)
+			this->data[i] = right.data[i];
+	}
+}
+
+template <class T>
+DynArray<T>& DynArray<T>::operator=(const DynArray& right) {
+	if (this != &right)
+	{
+		delete[] this->data;
+		this->si = right.size();
+		this->cap = right.capacity();
+		this->data = new T[this->cap];
+		for (int i = 0; i < this->si; i++)
+			this->data[i] = right.data[i];
+	}
+	return *this;
 }
