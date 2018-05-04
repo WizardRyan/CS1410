@@ -1,0 +1,35 @@
+20.1
+	Iterators are similar to pointers in syntax and concept. They can both be used to reference an object, and when used in pairs
+	they can decribe a range of elements. Both iterators and pointers extend past the end of the container to delimit that range.
+	Iterators are different than pointers in that they don't have to be in contiguous memory. Iterators are also specifically used
+	to cycle through a container, while pointers can be used in more general cases.
+
+20.2
+	A past-the-end value is a pointer or iterator that extends past the end of it's container. It's used to show that you have reached the end 
+	of the container, and normally contains a special value that lets you know you've reached the end, as opposed to another object of that
+	container.
+
+20.4
+	Input iterator: supports ==, !=, ++, *, and -> for returning a value
+	Output iterator: supports same as input, and should be used for assignment
+	Forward iterator: supports same as Input, and should be used to traverse forward in a container
+	Bidirectional iterator: supports same as forward, but as well as --, can be used to traverse forward or backwards
+	Random Access iterator: supports same as Bidirectional, as well as [] and support for iterator + n / iterator - n. Can be used, well, for random access haha.
+
+	singley linked list: forward iterator
+	doubley linked list: bidirectional iterator
+	vector, deque: random access iterator
+
+20.9
+	double-ended queue
+
+20.11
+
+	It's required to be ordered. O(n) vs O(log(n))
+
+20.14
+	A generator is a method that returns a value without any parameters, e.g. getting a random number to simulate a dice roll.
+
+20.16
+	A function object is a just a class the overloads the () operator. This makes it so an object can behave as a function, but unlike a function
+	can be assigned and passed around as a parameter, as it's still an object.
