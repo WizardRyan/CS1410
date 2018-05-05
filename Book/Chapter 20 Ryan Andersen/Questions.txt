@@ -32,4 +32,4 @@
 
 20.16
 	A function object is a just a class the overloads the () operator. This makes it so an object can behave as a function, but unlike a function
-	can be assigned and passed around as a parameter, as it's still an object.
+	can be assigned and passed around as a parameter, and have data members as it's still an object.
